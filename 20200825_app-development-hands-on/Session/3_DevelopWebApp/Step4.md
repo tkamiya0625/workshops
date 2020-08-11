@@ -107,4 +107,4 @@ watchUtils の [init](https://developers.arcgis.com/javascript/latest/api-refere
 
 Step 4 はここまでです。  
 
-次の Step5 は、「[Step5：属性検索の実装](./Step5#Step5：属性検索の実装)」をご参照ください。
+次の Step5 は、「[Step5：属性検索の実装](./Step5.md#Step5属性検索の実装)」をご参照ください。
