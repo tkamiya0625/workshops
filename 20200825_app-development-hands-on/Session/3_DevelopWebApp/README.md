@@ -43,7 +43,7 @@ https://community.esri.com/docs/DOC-14692)をご参照ください。
 
 ### 2. アプリの配置
 
-[本ハンズオンで使用するアプリはこちらでダウンロードできます](https://github.com/EsriJapan/workshops/tree/master/20200825_app-development-hands-on/Session/3_DevelopWebApp/HandsOn_WebApp.zip)
+[本ハンズオンで使用するアプリはこちらでダウンロードできます](https://github.com/tkamiya0625/workshops/blob/master/20200825_app-development-hands-on/Session/3_DevelopWebApp/HandsOn_WebApp.zip)
 
 上記リンクでダウンロードする HandsOn_WebApp.zip 内の calcite-maps フォルダがプロジェクトです。  
 
