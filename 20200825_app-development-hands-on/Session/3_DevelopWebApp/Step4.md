@@ -96,11 +96,35 @@ watchUtils の [init](https://developers.arcgis.com/javascript/latest/api-refere
 
 
 以下の画面のようにメインの地図と連動した概観図が作成されます。
-|<img src="./img/app_step4_2.png" width="600">|
+|<img src="./img/app_step4_2.png" width="500">|
 |:-:|
 
-ArcGIS API for JavaScript のサンプルとして紹介している「 [Overview map](https://developers.arcgis.com/javascript/latest/sample-code/overview-map/index.html) 」も併せてご参照ください。
 
 Step 4 はここまでです。  
+
+### Step 4 のまとめ
+
+概観図の作成では、概観図用の Map と View を用意することで実現しています。
+
+```JavaScript
+// overviewMap（概観図）
+overviewMap = new Map({
+  basemap: "topo"
+});
+
+// overView
+overView = new MapView({
+  container: "overViewDiv",
+  map: overviewMap,
+  constraints: {
+    rotationEnabled: false
+  }
+});
+
+// UI コンポーネントの初期化（デフォルトのウィジェットとして設定）
+overView.ui.components = [];
+```
+
+その他、ArcGIS API for JavaScript のサンプルとして紹介している「 [Overview map](https://developers.arcgis.com/javascript/latest/sample-code/overview-map/index.html) 」も併せてご参照ください。ここでは、3D シーンを使用しています。
 
 次の Step5 は、「[Step5：属性検索の実装](./Step5.md#Step5属性検索の実装)」をご参照ください。

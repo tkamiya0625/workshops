@@ -129,16 +129,36 @@ http://127.0.0.1:5500/calcite-maps/index.html
 |<img src="./img/app_step1_3.png" width="600">|
 |:-:|
 
+Step 2 はここまでです。  
 
+### Step2 のまとめ
 Map と View の関係ですが、Map はレイヤーを管理し、View はスクリーン上に Map を描画します。マップは、作成した Map を View に設定することでページに表示されます。  
+また、Map の作成には、Map クラスを使用してベースマップなどを指定して
+作成する場合と上記のようにWeb マップを利用する方法があります。
 
-マップの作成に関しての詳細は、API リファレンスの Map と View をご参照ください。
+```JavaScript
+// コードで Map を作成
+const map = new Map({
+    basemap: "topo",
+    layers: [......]
+});
+
+// Web マップを利用
+// ポータル（ArcGIS Online/ArcGIS Enterprise）と連携
+const map = new WebMap({
+    portalItem: {
+        id: "webmapid"
+    }
+});
+```
+
+マップの作成に関しての詳細は、API リファレンスの Map、WebMap、View をご参照ください。
 
 - API リファレンス
   - [Map](https://developers.arcgis.com/javascript/latest/api-reference/esri-Map.html)
-  - [View](https://developers.arcgis.com/javascript/latest/api-reference/esri-views-MapView.html)
+  - [WebMap](https://developers.arcgis.com/javascript/latest/api-reference/esri-WebMap.html)
+  - [View](https://developers.arcgis.com/javascript/latest/api-reference/esri-views-MapView.html) 
 
-Step 2 はここまでです。  
 
 次の Step3 は、「[Step3：標準ウィジェットの実装](./Step3.md#Step3標準ウィジェットの実装) 」をご参照ください。
    

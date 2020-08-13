@@ -1,6 +1,11 @@
 ## Step5：属性検索の実装  
 ### 1. 属性検索ウィジェットの作成
 ### 2. 検索結果はフィーチャ テーブルウィジェットに表示
+
+Step5 では、属性検索を実装していきます。
+|<img src="./img/app_step5_3.gif" width="600">|
+|:-:|
+
 main.js、query-task.js、search-feature-table.js に対して実装していきます。
 
 ### 1．属性検索ウィジェットの実装  
@@ -103,8 +108,29 @@ for (let field of layer.fields) {
 }
 ```
 
+属性には、[ドメイン](https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-support-Field.html#domain)と呼ばれるデータの整合性を維持するために有効な属性値のルールを定義しているため、それらの属性も表現する必要があります。
+そのため、field の type を "coded-value" で判断する処理を入れています。
+```JavaScript
+if (field.domain.type === "coded-value") {
+  :
+  :
+}
+```
+
+また、[サブタイプ](https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-FeatureLayer.html#typeIdField)を定義している場合もあるため、以下のコードようにサブタイプを取得して表現するようにしています。
+
+```JavaScript
+if (layer.typeIdField === fieldName) {
+  for (let type of layer.types) {
+    if (type.id && type.name) {
+      option += "<option value="+ type.id + ">"+ type.name +"</option>";
+    }
+  }
+}
+```
+
 すべてのコードの記述後にアプリを実行して、メニューから属性検索を選択します。以下の画面が表示されます。
-|![step5_1](./img/app_step5_1.png)|
+|<img src="./img/app_step5_1.png" width="300">|
 |:-:|
 
 <br/>

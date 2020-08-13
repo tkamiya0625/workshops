@@ -162,7 +162,7 @@ LayerList クラスのコンストラクタのプロパティには、レイヤ�
 |<img src="./img/app_step3_2.png" width="600">|
 |:-:|
 
-すると、以下のようなレイヤーリスト ウィジェットを表示します。
+以下のようなレイヤーリスト ウィジェットを表示します。
 |<img src="./img/app_step3_3.png" width="600">|
 |:-:|
 
@@ -187,6 +187,9 @@ Print クラスのコンストラクタの printServiceUrl プロパティには
 その他、[GeoNet ブログの-続編-はじめてのweb-マッピングアプリケーション開発-印刷ウィジェット編](https://community.esri.com/docs/DOC-14697)も併せてご参照ください。
 
 印刷 ウィジェットもレイヤーリスト ウィジェットと同様にメニューの印刷を選択することで立ち上がります。
+
+|<img src="./img/app_step3_10.png" width="300">|
+|:-:|
 
 <br/>
 
@@ -242,10 +245,13 @@ webmapSave.addEventListener("click", (event) => {
 ```
 Bookmarks ウィジェットもレイヤーリスト ウィジェットと同様にメニューのブックマークを選択することで立ち上がります。
 
+|<img src="./img/app_step3_9.png" width="300">|
+|:-:|
+
 <br/>
 
-<b>⑨Coordinates ウィジェット</b>  
-Coordinates ウィジェットは、マウスポイントが指定している座標、現在のスケールを表示するためのウィジェットです。この ウィジェットは、標準で用意されていないため、新規に作成します。
+<b>⑨チャレンジ：Coordinates ウィジェット</b>  
+Coordinates ウィジェットは、マウスポイントが指定している座標、現在のスケールを表示するためのウィジェットです。この ウィジェットは、標準で用意されていないため、新規に作成する必要があります。
 
 はじめに main.js を開いて、以下のコードを記述してください。
 ```javaScript
@@ -293,6 +299,31 @@ showCoordinates 関数では、座標と縮尺を表示する処理を記述し�
 |![step3](./img/app_step3_8.png)|
 |:-:|
 
-Step 3 はここまでです。  
+Step 3 はここまでです。 
+
+### Step3 のまとめ
+
+今回ハンズオンで使用したウィジェット以外にも20 を超える多くのウィジェットが用意されています。例えば、フィーチャの追加や削除などのデータを編集できる編集ウィジェットとして、[Editer ウィジェット](https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Editor.html)があります。  
+他のウィジェットについては、APIリファレンス内の [Widget](https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Widget.html) の Subclasses を参照することで確認できます。また、[サンプルコード](https://developers.arcgis.com/javascript/latest/sample-code/?search=widgets)としても提供していますので、ご参照ください。
+
+### Tips
+<b>UI API</b>  
+view の UI レイアウト を設定することができます。 
+UI コンポーネント（ウィジェットや DOM 要素）を四隅に簡単に配置して、  view.ui でアクセスして、追加、移動、削除が可能です。
+
+|<img src="./img/views-ui-layout.jpg" width="400">|
+|:-:|
+
+```javaScript
+// 追加
+view.ui.add(widget, "top-right");
+
+// 移動
+view.ui.move(widget, "bottom-left");
+
+// 削除
+view.ui.remove(widget);
+```
+
 
 次の Step4 は、「[Step4：概観図の実装](./Step4.md#Step4概観図の実装) 」をご参照ください。
