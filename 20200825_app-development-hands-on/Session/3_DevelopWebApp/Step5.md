@@ -170,6 +170,13 @@ const layers = map.allLayers.map((layer) => {
 return querylayer.queryFeatures(query);
 ```
 
+フィーチャの検索にはクエリを実行します。クエリは、マップ サービスまたはフィーチャ サービスのレイヤーに対して実行します。パラメーターに設定された検索条件に一致するフィーチャを取得することができます。
+
+クエリには、[FeatureLayer](https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-FeatureLayer.html) の queryFeature() メソッドを使用します。[queryFeatures()](https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-FeatureLayer.html#queryFeatures) メソッドに検索条件の [query](https://developers.arcgis.com/javascript/latest/api-reference/esri-tasks-support-Query.html) オブジェクトを指定することで、FeatureLayer に対して検索を行うことができます。
+
+詳細については、[Query features form a FeatureLayer](https://developers.arcgis.com/javascript/latest/sample-code/featurelayer-query/index.html) も併せてご参照ください。
+
+
 <b>Step5 フィーチャ テーブルウィジェットの作成</b>
 
 次に検索結果をフィーチャ テーブルウィジェットに表示する処理を実装します。
@@ -244,8 +251,10 @@ const featureTable = new FeatureTable({
   container: featureTableDiv
 });
 ```
+フィーチャ テーブルウィジェットは、フィーチャ レイヤーのデータをテーブル形式で表示します。テーブルの行を選択したり、属性に基づいてソートしたり、列 (属性) の表示/非表示を選択することもできます。  
+フィーチャ テーブルウィジェットの作成には、[FeatureTable](https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-FeatureTable.html) クラスを使用します。FeatureTable クラス の[プロパティ](https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-FeatureTable.html#properties-summary)には、layer や fieldConfigs など幾つか設定が必要な項目があります。layer には、ウィジェット内に表示するフィールドと属性を含んだ FeatureLayer を指定し、fieldConfigs には、個々に設定したフィールドの配列を指定します。また、フィーチャ テーブルウィジェットで編集する場合は、[editingEnabled](https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-FeatureTable.html#editingEnabled) を true にすることで編集が可能となります。
 
-そして、フィーチャ テーブルウィジェットでの各レコードが選択された場合の処理を実装します。
+そして、次にフィーチャ テーブルウィジェットで各レコードが選択された場合の処理を実装します。
 以下のコードを記述します。
 ```JavaScript
 // Todo: Step5 フィーチャ テーブルウィジェットでの各レコードを選択
